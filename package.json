@@ -7,13 +7,16 @@
   "author": "Matt Venables <mattvenables@gmail.com>",
   "license": "MIT",
   "standard": {
-    "env": ["mocha"]
+    "env": [
+      "mocha"
+    ]
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha test/**/*.spec.js"
   },
   "dependencies": {
-    "koa": "next"
+    "koa": "next",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",

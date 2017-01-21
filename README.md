@@ -4,7 +4,8 @@ The [Koa framework](https://github.com/koajs/koa) (v2) extended for APIs. Optimi
 
 ## Features
 
-* Adds an [X-Response-Time](lib/middleware/response-time.js) header to all responses
+* Adds an [X-Response-Time](lib/middleware/response-time.js) header to all responses.
+* Adds an [X-Request-Id](lib/middleware/request-id.js) header to all requests as they come in for easier debugging.
 
 ## Installation
 
