@@ -28,7 +28,7 @@ Simply replace your existing `koa` require with `koa-plus`
 
 Old:
 
-```
+```js
 const Koa = require('koa')
 const app = new Koa()
 // ...
@@ -36,7 +36,7 @@ const app = new Koa()
 
 New:
 
-```
+```js
 const Koa = require('koa-plus')
 const app = new Koa()
 // ...
@@ -53,7 +53,7 @@ middleware, simply pass the options to the constructor.
 
 #### Example
 
-```
+```js
 const Koa = require('koa-plus')
 
 const app = new Koa({
