@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "koa": "next",
+    "koa-helmet": "^3.1.0",
     "uuid": "^3.0.1"
   },
   "devDependencies": {
