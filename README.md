@@ -42,6 +42,30 @@ const app = new Koa()
 // ...
 ```
 
+### Configuration
+
+Some of the middleware included in `koa-plus` allows for options.  To pass options to these
+middleware, simply pass the options to the constructor.
+
+#### Options
+
+* `helmet`: Use the same options as the `helmet` middleware accepts. [Docs](https://helmetjs.github.io/docs/)
+
+#### Example
+
+```
+const Koa = require('koa-plus')
+
+const app = new Koa({
+  helmet: {
+    noCache: true,  // Sets the `Cache-Control` headers to prevent caching
+    frameguard: {
+      action: 'deny' // Set the `X-Frame-Options' header to be `DENY`
+    }
+  }
+})
+```
+
 ## Testing
 
 To run the tests locally, simply run `npm test`:

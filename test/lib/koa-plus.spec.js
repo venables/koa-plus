@@ -5,13 +5,9 @@ const expect = require('chai').expect
 const request = require('supertest')
 
 describe('koa-plus', function () {
-  let app
-
-  beforeEach(function () {
-    app = new KoaPlus()
-  })
-
   it('adds all documented middleware by default', function () {
+    let app = new KoaPlus()
+
     return request(app.listen())
       .get('/')
       .then(function (res) {
@@ -32,6 +28,23 @@ describe('koa-plus', function () {
         expect(res.headers['x-download-options']).to.equal('noopen')
         expect(res.headers['x-content-type-options']).to.equal('nosniff')
         expect(res.headers['x-xss-protection']).to.equal('1; mode=block')
+      })
+  })
+
+  it('allows configuration of the middleware', function () {
+    let app = new KoaPlus({
+      helmet: {
+        noCache: true
+      }
+    })
+
+    return request(app.listen())
+      .get('/')
+      .then(function (res) {
+        expect(res.headers['surrogate-control']).to.equal('no-store')
+        expect(res.headers['cache-control']).to.equal('no-store, no-cache, must-revalidate, proxy-revalidate')
+        expect(res.headers['pragma']).to.equal('no-cache')
+        expect(res.headers['expires']).to.equal('0')
       })
   })
 })
