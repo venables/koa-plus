@@ -1,9 +1,9 @@
 'use strict'
 
 const Koa = require('koa')
-const expect = require('chai').expect
 const middleware = require('../../../lib/middleware/request-id')
 const request = require('supertest')
+const uuid = require('uuid-regexp')
 
 describe('request-id middleware', function () {
   it('adds the `x-request-id` header to the response', function () {
@@ -12,8 +12,6 @@ describe('request-id middleware', function () {
 
     return request(app.listen())
       .get('/')
-      .then(function (res) {
-        expect(res.headers).to.include.key('x-request-id')
-      })
+      .expect('x-request-id', uuid())
   })
 })

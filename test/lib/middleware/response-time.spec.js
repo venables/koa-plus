@@ -1,7 +1,6 @@
 'use strict'
 
 const Koa = require('koa')
-const expect = require('chai').expect
 const middleware = require('../../../lib/middleware/response-time')
 const request = require('supertest')
 
@@ -12,8 +11,6 @@ describe('response-time middleware', function () {
 
     return request(app.listen())
       .get('/')
-      .then(function (res) {
-        expect(res.headers).to.include.key('x-response-time')
-      })
+      .expect('x-response-time', /^[0-9]+ms$/)
   })
 })
