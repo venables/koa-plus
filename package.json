@@ -1,0 +1,9 @@
+{
+  "name": "koa-plus",
+  "version": "1.0.0",
+  "description": "Koa framework extended for security, scalability, and productivity",
+  "main": "lib/index.js",
+  "repository": "https://github.com/venables/koa-plus",
+  "author": "Matt Venables <mattvenables@gmail.com>",
+  "license": "MIT"
+}
