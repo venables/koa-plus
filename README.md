@@ -57,6 +57,7 @@ middleware, simply pass the options to the constructor.
 #### Options
 
 * `helmet`: Use the same options as the `helmet` middleware accepts. [Docs](https://helmetjs.github.io/docs/)
+* `cors`: Use the same options as the `kcors` middleware accepts. [Docs](https://github.com/koajs/cors/tree/v2.x)
 
 #### Example
 
@@ -69,6 +70,9 @@ const app = new Koa({
     frameguard: {
       action: 'deny' // Set the `X-Frame-Options' header to be `DENY`
     }
+  },
+  cors: {
+    origin: '*' // Set the `Access-Control-Allow-Origin` header to be `*`
   }
 })
 ```
