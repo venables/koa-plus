@@ -2,6 +2,10 @@
 
 The [Koa framework](https://github.com/koajs/koa) (v2) extended for APIs. Optimized for security, scalability, and productivity.
 
+## Features
+
+* Adds an [X-Response-Time](lib/middleware/response-time.js) header to all responses
+
 ## Installation
 
 Install `koa-plus` via yarn or npm:
@@ -34,4 +38,12 @@ New:
 const Koa = require('koa-plus')
 const app = new Koa()
 // ...
+```
+
+## Testing
+
+To run the tests locally, simply run `npm test`:
+
+```
+npm test
 ```

@@ -6,7 +6,18 @@
   "repository": "https://github.com/venables/koa-plus",
   "author": "Matt Venables <mattvenables@gmail.com>",
   "license": "MIT",
+  "standard": {
+    "env": ["mocha"]
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/**/*.spec.js"
+  },
   "dependencies": {
     "koa": "next"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "supertest": "^2.0.1"
   }
 }
