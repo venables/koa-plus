@@ -1,19 +1,25 @@
 'use strict'
 
 const Koa = require('koa')
+const KoaPlus = require('../../../lib')
 const expect = require('chai').expect
 const middleware = require('../../../lib/middleware/response-time')
 const request = require('supertest')
 
 describe('response-time middleware', function () {
-  let app
+  it('adds the `x-response-time` header to the response', function () {
+    let app = new Koa()
+    app.use(middleware)
 
-  beforeEach(function () {
-    app = new Koa()
+    return request(app.listen())
+      .get('/')
+      .then(function (res) {
+        expect(res.headers).to.include.key('x-response-time')
+      })
   })
 
-  it('adds the `x-response-time` header to the response', function () {
-    app.use(middleware)
+  it('is included in KoaPlus by default', function () {
+    let app = new KoaPlus()
 
     return request(app.listen())
       .get('/')
