@@ -6,12 +6,12 @@ const request = require('supertest')
 const uuid = require('uuid-regexp')
 
 describe('request-id middleware', function () {
-  it('adds the `x-request-id` header to the response', function () {
+  it('adds the `X-Request-Id` header to the response', function () {
     let app = new Koa()
     app.use(middleware)
 
     return request(app.listen())
       .get('/')
-      .expect('x-request-id', uuid())
+      .expect('X-Request-Id', uuid())
   })
 })

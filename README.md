@@ -58,6 +58,7 @@ middleware, simply pass the options to the constructor.
 
 * `helmet`: Use the same options as the `helmet` middleware accepts. [Docs](https://helmetjs.github.io/docs/)
 * `cors`: Use the same options as the `kcors` middleware accepts. [Docs](https://github.com/koajs/cors/tree/v2.x)
+* `compress`: use the same options as the `koa-compress` middleware accepts. [Docs](https://github.com/koajs/compress/tree/v2.x)
 
 #### Example
 
@@ -73,14 +74,13 @@ const app = new Koa({
   },
   cors: {
     origin: '*' // Set the `Access-Control-Allow-Origin` header to be `*`
+  },
+  compress: {
+    flush: require('zlib').Z_SYNC_FLUSH
   }
 })
 ```
 
 ## Testing
 
-To run the tests locally, simply run `npm test`:
-
-```
-npm test
-```
+To run the tests locally, simply run `yarn test` or `npm test`

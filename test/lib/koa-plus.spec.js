@@ -1,5 +1,6 @@
 'use strict'
 
+const controller = require('../support/controller')
 const KoaPlus = require('../../lib')
 const request = require('supertest')
 const uuid = require('uuid-regexp')
@@ -9,18 +10,20 @@ describe('koa-plus', function () {
 
   it('adds all documented middleware by default', function () {
     let app = new KoaPlus()
+    app.use(controller)
 
     return request(app.listen())
       .get('/')
       .set('Origin', origin)
-      .expect('x-response-time', /^[0-9]+ms$/)
-      .expect('x-request-id', uuid())
-      .expect('x-dns-prefetch-control', 'off')
-      .expect('x-frame-options', 'SAMEORIGIN')
-      .expect('x-download-options', 'noopen')
-      .expect('x-content-type-options', 'nosniff')
-      .expect('x-xss-protection', '1; mode=block')
-      .expect('access-control-allow-origin', origin)
+      .expect('X-Response-Time', /^[0-9]+ms$/)
+      .expect('X-Request-ID', uuid())
+      .expect('X-Dns-Prefetch-Control', 'off')
+      .expect('X-Frame-Options', 'SAMEORIGIN')
+      .expect('X-Download-Options', 'noopen')
+      .expect('X-Content-Type-Options', 'nosniff')
+      .expect('X-XSS-Protection', '1; mode=block')
+      .expect('Access-Control-Allow-Origin', origin)
+      .expect('Vary', 'Accept-Encoding')
   })
 
   it('allows configuration of the middleware', function () {
@@ -30,16 +33,22 @@ describe('koa-plus', function () {
       },
       cors: {
         origin: '*'
+      },
+      compress: {
+        threshold: 1
       }
     })
+    app.use(controller)
 
     return request(app.listen())
       .get('/')
       .set('Origin', origin)
-      .expect('surrogate-control', 'no-store')
-      .expect('cache-control', 'no-store, no-cache, must-revalidate, proxy-revalidate')
-      .expect('pragma', 'no-cache')
-      .expect('expires', '0')
+      .expect('Surrogate-Control', 'no-store')
+      .expect('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate')
+      .expect('Pragma', 'no-cache')
+      .expect('Expires', '0')
       .expect('Access-Control-Allow-Origin', '*')
+      .expect('Content-Encoding', 'gzip')
+      .expect('Transfer-Encoding', 'chunked')
   })
 })
