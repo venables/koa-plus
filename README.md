@@ -1,6 +1,6 @@
 # koa-plus
 
-The [Koa (v2) framework](https://github.com/koajs/koa) extended for security, scalability, and productivity.
+The [Koa framework](https://github.com/koajs/koa) (v2) extended for APIs. Optimized for security, scalability, and productivity.
 
 ## Installation
 
