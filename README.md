@@ -1,6 +1,12 @@
 # koa-plus
 
-The [Koa framework](https://github.com/koajs/koa) (v2) extended for APIs. Optimized for security, scalability, and productivity.
+[![Version](https://img.shields.io/npm/v/koa-plus.svg?style=flat-square)](https://www.npmjs.com/package/koa-plus)
+[![Dependency Status](https://img.shields.io/david/venables/koa-plus.svg?style=flat-square)](https://david-dm.org/venables/koa-plus)
+[![Build Status](https://img.shields.io/travis/venables/koa-plus/master.svg?style=flat-square)](https://travis-ci.org/venables/koa-plus)
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![Downloads](https://img.shields.io/npm/dm/koa-plus.svg?style=flat-square)](https://www.npmjs.com/package/koa-plus)
+
+koa-plus is the [koa framework](https://github.com/koajs/koa) (v2) extended for APIs. Optimized for security, scalability, and productivity.
 
 ## Features
 
