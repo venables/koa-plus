@@ -30,7 +30,6 @@
     "coveralls": "^2.11.15",
     "mocha": "^3.2.0",
     "nyc": "^10.1.2",
-    "supertest": "^2.0.1",
-    "uuid-regexp": "^0.3.0"
+    "supertest": "^2.0.1"
   }
 }

@@ -4,7 +4,7 @@ const controller = require('../support/controller')
 const etag = require('etag')
 const KoaPlus = require('../../lib')
 const request = require('supertest')
-const uuid = require('uuid-regexp')
+const uuid = require('../support/uuid')
 
 describe('koa-plus', function () {
   let origin = 'http://test.host'
@@ -17,7 +17,7 @@ describe('koa-plus', function () {
       .get('/')
       .set('Origin', origin)
       .expect('X-Response-Time', /^[0-9]+ms$/)
-      .expect('X-Request-ID', uuid())
+      .expect('X-Request-ID', uuid.regexp)
       .expect('X-Dns-Prefetch-Control', 'off')
       .expect('X-Frame-Options', 'SAMEORIGIN')
       .expect('X-Download-Options', 'noopen')
