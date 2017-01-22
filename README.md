@@ -15,6 +15,7 @@ koa-plus is the [koa framework](https://github.com/koajs/koa) (v2) extended for 
 * Adds an [X-Response-Time](lib/middleware/response-time.js) header to all responses.
 * Adds an [X-Request-Id](lib/middleware/request-id.js) header to all requests as they come in for easier debugging.
   * Also passes through client/proxy/load-balancer generated `X-Request-Id` headers as `X-Client-Request-Id`
+* Uses [koa-better-body](https://github.com/tunnckoCore/koa-better-body) to parse any request body type
 
 ## Installation
 
@@ -59,7 +60,8 @@ middleware, simply pass the options to the constructor.
 
 * `helmet`: Use the same options as the `helmet` middleware accepts. [Docs](https://helmetjs.github.io/docs/)
 * `cors`: Use the same options as the `kcors` middleware accepts. [Docs](https://github.com/koajs/cors/tree/v2.x)
-* `compress`: use the same options as the `koa-compress` middleware accepts. [Docs](https://github.com/koajs/compress/tree/v2.x)
+* `compress`: Use the same options as the `koa-compress` middleware accepts. [Docs](https://github.com/koajs/compress/tree/v2.x)
+* `body`:  Use the same options as the `koa-better-body` middleware accepts. [Docs](https://github.com/tunnckoCore/koa-better-body)
 
 #### Example
 

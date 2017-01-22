@@ -51,4 +51,15 @@ describe('koa-plus', function () {
       .expect('Content-Encoding', 'gzip')
       .expect('Transfer-Encoding', 'chunked')
   })
+
+  it('parses JSON bodies', function () {
+    let app = new KoaPlus()
+    app.use(controller)
+
+    return request(app.listen())
+      .post('/')
+      .send({ super: 'test' })
+      .expect(201)
+      .expect({ fields: { super: 'test' } })
+  })
 })
