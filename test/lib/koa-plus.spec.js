@@ -31,14 +31,18 @@ describe('koa-plus', function () {
 
   it('allows configuration of the middleware', function () {
     let app = new KoaPlus({
-      helmet: {
-        noCache: true
+      compress: {
+        threshold: 1
       },
       cors: {
         origin: '*'
       },
-      compress: {
-        threshold: 1
+      helmet: {
+        noCache: true
+      },
+      logger: {
+        enabled: true,
+        skip: () => true
       }
     })
     app.use(controller)
@@ -98,6 +102,9 @@ describe('koa-plus', function () {
         enabled: false
       },
       json: {
+        enabled: false
+      },
+      logger: {
         enabled: false
       },
       requestId: {

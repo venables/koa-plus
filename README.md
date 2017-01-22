@@ -19,7 +19,10 @@ koa-plus is the [koa framework](https://github.com/koajs/koa) (v2) extended for 
 * Uses [koa-better-body](https://github.com/tunnckoCore/koa-better-body) to parse any request body type
 * Adds ETag headers to allow conditional GET requests (respond with `304 Not Modified`)
 * Object stream support via [koa-json](https://github.com/koajs/json)
+* Request logging via [koa-morgan](https://github.com/koa-modules/morgan)
 * Pretty-printed JSON in development
+
+Each feature [can be disabled](#disabling-middleware) individually.
 
 ## Installation
 
@@ -62,11 +65,12 @@ middleware, simply pass the options to the constructor.
 
 #### Options
 
-* `helmet`: Use the same options as the `helmet` middleware accepts. [Docs](https://helmetjs.github.io/docs/)
-* `cors`: Use the same options as the `kcors` middleware accepts. [Docs](https://github.com/koajs/cors/tree/v2.x)
-* `compress`: Use the same options as the `koa-compress` middleware accepts. [Docs](https://github.com/koajs/compress/tree/v2.x)
 * `body`:  Use the same options as the `koa-better-body` middleware accepts. [Docs](https://github.com/tunnckoCore/koa-better-body)
+* `compress`: Use the same options as the `koa-compress` middleware accepts. [Docs](https://github.com/koajs/compress/tree/v2.x)
+* `cors`: Use the same options as the `kcors` middleware accepts. [Docs](https://github.com/koajs/cors/tree/v2.x)
+* `helmet`: Use the same options as the `helmet` middleware accepts. [Docs](https://helmetjs.github.io/docs/)
 * `json`: Use the same options as the `koa-json` middleware accepts. [Docs](https://github.com/koajs/json/tree/next)
+* `logger`: Use `format` for the logger format, and the remaining options as what `morgan` accepts [Docs](https://github.com/expressjs/morgan)
 
 #### Example
 
@@ -74,23 +78,26 @@ middleware, simply pass the options to the constructor.
 const Koa = require('koa-plus')
 
 const app = new Koa({
+  body: {
+    jsonLimit: '10kb' // Sets the json request body limit to 10k
+  },
+  compress: {
+    threshold: 2048 // Sets the threshold to Gzip responses at 2k (2048 bytes)
+  },
+  cors: {
+    origin: '*' // Set the `Access-Control-Allow-Origin` header to be `*`
+  },
   helmet: {
     noCache: true,  // Sets the `Cache-Control` headers to prevent caching
     frameguard: {
       action: 'deny' // Set the `X-Frame-Options' header to be `DENY`
     }
   },
-  cors: {
-    origin: '*' // Set the `Access-Control-Allow-Origin` header to be `*`
-  },
-  compress: {
-    threshold: 2048 // Sets the threshold to Gzip responses at 2k (2048 bytes)
-  },
-  body: {
-    jsonLimit: '10kb' // Sets the json request body limit to 10k
-  },
   json: {
     pretty: false // Disables pretty-printing
+  },
+  logger: {
+    format: 'dev' // Use the `dev` format of logging
   }
 })
 ```
@@ -121,6 +128,9 @@ const app = new Koa({
     enabled: false
   },
   json: {
+    enabled: false
+  },
+  logger: {
     enabled: false
   },
   requestId: {

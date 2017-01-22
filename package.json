@@ -12,7 +12,7 @@
     ]
   },
   "scripts": {
-    "test": "./node_modules/.bin/nyc ./node_modules/.bin/mocha 'test/**/*.spec.js'",
+    "test": "NODE_ENV=test ./node_modules/.bin/nyc ./node_modules/.bin/mocha 'test/**/*.spec.js'",
     "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
   },
   "dependencies": {
@@ -25,6 +25,7 @@
     "koa-etag": "^3.0.0",
     "koa-helmet": "^3.1.0",
     "koa-json": "^2.0.2",
+    "koa-morgan": "^1.0.1",
     "koa-response-time": "^2.0.0",
     "lodash.defaultsdeep": "^4.6.0",
     "uuid": "^3.0.1"

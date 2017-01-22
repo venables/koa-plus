@@ -3,6 +3,7 @@
 ## 1.1.0 (2016-01-22)
 
 * Allow middleware to be disabled with the `enabled: false` flag
+* Add request logging via `koa-morgan`
 
 ## 1.0.0 (2016-01-21)
 
