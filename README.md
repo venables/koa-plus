@@ -13,7 +13,7 @@ koa-plus is the [koa framework](https://github.com/koajs/koa) (v2) extended for 
 
 * Important security headers via [helmet](https://github.com/venables/koa-helmet).
 * CORS support via [kcors](https://github.com/koajs/cors/tree/v2.x).
-* Adds an [X-Response-Time](lib/middleware/response-time.js) header to all responses.
+* Adds an [X-Response-Time](https://github.com/koajs/response-time/tree/v2.x) header to all responses.
 * Adds an [X-Request-Id](lib/middleware/request-id.js) header to all requests as they come in for easier debugging.
   * Also passes through client/proxy/load-balancer generated `X-Request-Id` headers as `X-Client-Request-Id`
 * Uses [koa-better-body](https://github.com/tunnckoCore/koa-better-body) to parse any request body type
