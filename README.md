@@ -11,8 +11,8 @@ koa-plus is the [koa framework](https://github.com/koajs/koa) (v2) extended for 
 
 ## Features
 
-* Automatically adds important security headers via [helmet](https://github.com/venables/koa-helmet).
-* Adds CORS support via [kcors](https://github.com/koajs/cors/tree/v2.x).
+* Important security headers via [helmet](https://github.com/venables/koa-helmet).
+* CORS support via [kcors](https://github.com/koajs/cors/tree/v2.x).
 * Adds an [X-Response-Time](lib/middleware/response-time.js) header to all responses.
 * Adds an [X-Request-Id](lib/middleware/request-id.js) header to all requests as they come in for easier debugging.
   * Also passes through client/proxy/load-balancer generated `X-Request-Id` headers as `X-Client-Request-Id`
@@ -81,7 +81,10 @@ const app = new Koa({
     origin: '*' // Set the `Access-Control-Allow-Origin` header to be `*`
   },
   compress: {
-    flush: require('zlib').Z_SYNC_FLUSH
+    threshold: 2048 // Sets the threshold to Gzip responses at 2k (2048 bytes)
+  },
+  body: {
+    jsonLimit: '10kb' // Sets the json request body limit to 10k
   }
 })
 ```
