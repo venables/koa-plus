@@ -3,6 +3,7 @@
 [![Version](https://img.shields.io/npm/v/koa-plus.svg?style=flat-square)](https://www.npmjs.com/package/koa-plus)
 [![Dependency Status](https://img.shields.io/david/venables/koa-plus.svg?style=flat-square)](https://david-dm.org/venables/koa-plus)
 [![Build Status](https://img.shields.io/travis/venables/koa-plus/master.svg?style=flat-square)](https://travis-ci.org/venables/koa-plus)
+[![Coverage Status](https://coveralls.io/repos/github/venables/koa-plus/badge.svg)](https://coveralls.io/github/venables/koa-plus)
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Downloads](https://img.shields.io/npm/dm/koa-plus.svg?style=flat-square)](https://www.npmjs.com/package/koa-plus)
 

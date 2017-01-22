@@ -12,7 +12,8 @@
     ]
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha 'test/**/*.spec.js'"
+    "test": "./node_modules/.bin/nyc ./node_modules/.bin/mocha 'test/**/*.spec.js'",
+    "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
   },
   "dependencies": {
     "kcors": "^2.2.0",
@@ -26,7 +27,9 @@
     "uuid": "^3.0.1"
   },
   "devDependencies": {
+    "coveralls": "^2.11.15",
     "mocha": "^3.2.0",
+    "nyc": "^10.1.2",
     "supertest": "^2.0.1",
     "uuid-regexp": "^0.3.0"
   }
