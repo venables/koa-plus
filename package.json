@@ -1,6 +1,6 @@
 {
   "name": "koa-plus",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "The Koa framework extended for APIs. Optimized for security, scalability, and productivity",
   "main": "lib/index.js",
   "repository": "https://github.com/venables/koa-plus",
