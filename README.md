@@ -18,6 +18,7 @@ koa-plus is the [koa framework](https://github.com/koajs/koa) (v2) extended for 
   * Also passes through client/proxy/load-balancer generated `X-Request-Id` headers as `X-Client-Request-Id`
 * Uses [koa-better-body](https://github.com/tunnckoCore/koa-better-body) to parse any request body type
 * Adds ETag headers to allow conditional GET requests (respond with `304 Not Modified`)
+* Object stream support via [koa-json](https://github.com/koajs/json)
 
 ## Installation
 
@@ -64,6 +65,7 @@ middleware, simply pass the options to the constructor.
 * `cors`: Use the same options as the `kcors` middleware accepts. [Docs](https://github.com/koajs/cors/tree/v2.x)
 * `compress`: Use the same options as the `koa-compress` middleware accepts. [Docs](https://github.com/koajs/compress/tree/v2.x)
 * `body`:  Use the same options as the `koa-better-body` middleware accepts. [Docs](https://github.com/tunnckoCore/koa-better-body)
+* `json`: Use the same options as the `koa-json` middleware accepts. [Docs](https://github.com/koajs/json/tree/next)
 
 #### Example
 
@@ -85,10 +87,23 @@ const app = new Koa({
   },
   body: {
     jsonLimit: '10kb' // Sets the json request body limit to 10k
+  },
+  json: {
+    pretty: false // Disables pretty-printing
   }
 })
 ```
 
 ## Testing
 
-To run the tests locally, simply run `yarn test` or `npm test`
+To run the tests locally, simply run
+
+```
+yarn test
+```
+
+or
+
+```
+npm test
+```

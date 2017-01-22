@@ -24,6 +24,8 @@
     "koa-convert": "^1.2.0",
     "koa-etag": "^3.0.0",
     "koa-helmet": "^3.1.0",
+    "koa-json": "^2.0.2",
+    "lodash.defaultsdeep": "^4.6.0",
     "uuid": "^3.0.1"
   },
   "devDependencies": {
