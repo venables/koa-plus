@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0 (2016-01-22)
+
+* Allow middleware to be disabled with the `enabled: false` flag
+
 ## 1.0.0 (2016-01-21)
 
 First major release :rocket:

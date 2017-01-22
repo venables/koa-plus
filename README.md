@@ -19,6 +19,7 @@ koa-plus is the [koa framework](https://github.com/koajs/koa) (v2) extended for 
 * Uses [koa-better-body](https://github.com/tunnckoCore/koa-better-body) to parse any request body type
 * Adds ETag headers to allow conditional GET requests (respond with `304 Not Modified`)
 * Object stream support via [koa-json](https://github.com/koajs/json)
+* Pretty-printed JSON in development
 
 ## Installation
 
@@ -90,6 +91,43 @@ const app = new Koa({
   },
   json: {
     pretty: false // Disables pretty-printing
+  }
+})
+```
+
+#### Disabling middleware
+
+Each of the middleware in koa-plus can be disabled individually by using the `enabled` option.
+
+As an example, to reset `koa-plus` back to basic `koa` functionality, use the following config:
+
+```js
+const Koa = require('koa-plus')
+
+const app = new Koa({
+  body: {
+    enabled: false
+  },
+  compress: {
+    enabled: false
+  },
+  cors: {
+    enabled: false
+  },
+  etag: {
+    enabled: false
+  },
+  helmet: {
+    enabled: false
+  },
+  json: {
+    enabled: false
+  },
+  requestId: {
+    enabled: false
+  },
+  responseTime: {
+    enabled: false
   }
 })
 ```

@@ -79,4 +79,79 @@ describe('koa-plus', function () {
       .set('If-None-Match', etag(JSON.stringify(body)))
       .expect(304)
   })
+
+  it('allows for disabling each of the middleware', function () {
+    let app = new KoaPlus({
+      body: {
+        enabled: false
+      },
+      compress: {
+        enabled: false
+      },
+      cors: {
+        enabled: false
+      },
+      etag: {
+        enabled: false
+      },
+      helmet: {
+        enabled: false
+      },
+      json: {
+        enabled: false
+      },
+      requestId: {
+        enabled: false
+      },
+      responseTime: {
+        enabled: false
+      }
+    })
+    app.use(controller)
+
+    return request(app.listen())
+      .post('/')
+      .set('Origin', origin)
+      .send({ super: 'test' })
+      .expect((res) => {
+        let headers = Object.keys(res.headers)
+
+        if (headers.includes('x-response-time')) {
+          throw new Error('Should not include header: X-Response-Time')
+        }
+
+        if (headers.includes('x-request-id')) {
+          throw new Error('Should not include header: X-Request-Id')
+        }
+        if (headers.includes('x-dns-prefetch-control')) {
+          throw new Error('Should not include header: X-DNS-Prefetch-Control')
+        }
+        if (headers.includes('x-frame-options')) {
+          throw new Error('Should not include header: X-Frame-Options')
+        }
+        if (headers.includes('x-download-options')) {
+          throw new Error('Should not include header: X-Download-Options')
+        }
+        if (headers.includes('x-content-type-options')) {
+          throw new Error('Should not include header: X-Content-Type-Options')
+        }
+        if (headers.includes('x-xss-protection')) {
+          throw new Error('Should not include header: X-XSS-Protection')
+        }
+        if (headers.includes('access-control-allow-origin')) {
+          throw new Error('Should not include header: Access-Control-Allow-Origin')
+        }
+        if (headers.includes('vary')) {
+          throw new Error('Should not include header: Vary')
+        }
+        if (headers.includes('etag')) {
+          throw new Error('Should not include header: ETag')
+        }
+
+        if (res.body && res.body.fields) {
+          throw new Error('Should not have a res.body `fields` property')
+        }
+      })
+      .expect(201)
+  })
 })
