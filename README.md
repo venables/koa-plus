@@ -16,6 +16,7 @@ koa-plus is the [koa framework](https://github.com/koajs/koa) (v2) extended for 
 * Adds an [X-Request-Id](lib/middleware/request-id.js) header to all requests as they come in for easier debugging.
   * Also passes through client/proxy/load-balancer generated `X-Request-Id` headers as `X-Client-Request-Id`
 * Uses [koa-better-body](https://github.com/tunnckoCore/koa-better-body) to parse any request body type
+* Adds ETag headers to allow conditional GET requests (respond with `304 Not Modified`)
 
 ## Installation
 

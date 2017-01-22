@@ -1,6 +1,7 @@
 'use strict'
 
 const controller = require('../support/controller')
+const etag = require('etag')
 const KoaPlus = require('../../lib')
 const request = require('supertest')
 const uuid = require('uuid-regexp')
@@ -24,6 +25,8 @@ describe('koa-plus', function () {
       .expect('X-XSS-Protection', '1; mode=block')
       .expect('Access-Control-Allow-Origin', origin)
       .expect('Vary', 'Accept-Encoding')
+      .expect('ETag', /.*/)
+      .expect(200)
   })
 
   it('allows configuration of the middleware', function () {
@@ -50,6 +53,7 @@ describe('koa-plus', function () {
       .expect('Access-Control-Allow-Origin', '*')
       .expect('Content-Encoding', 'gzip')
       .expect('Transfer-Encoding', 'chunked')
+      .expect(200)
   })
 
   it('parses JSON bodies', function () {
@@ -61,5 +65,18 @@ describe('koa-plus', function () {
       .send({ super: 'test' })
       .expect(201)
       .expect({ fields: { super: 'test' } })
+  })
+
+  it('responds with a `304 Not Modified` if a fresh cache exists', function () {
+    let body = { hello: 'world' }
+    let app = new KoaPlus()
+    app.use((ctx) => {
+      ctx.body = body
+    })
+
+    return request(app.listen())
+      .get('/')
+      .set('If-None-Match', etag(JSON.stringify(body)))
+      .expect(304)
   })
 })
