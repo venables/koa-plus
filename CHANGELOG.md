@@ -1,11 +1,11 @@
 # Changelog
 
-## 1.1.0 (2016-01-22)
+## 1.1.0 (2017-01-22)
 
 * Allow middleware to be disabled with the `enabled: false` flag
 * Add request logging via `koa-morgan`
 
-## 1.0.0 (2016-01-21)
+## 1.0.0 (2017-01-21)
 
 First major release :rocket:
 
@@ -18,7 +18,7 @@ First major release :rocket:
 * koa-better-body (request body parsing)
 * koa-json (object streaming, json printing)
 
-## 0.2.0 (2016-01-21)
+## 0.2.0 (2017-01-21)
 
 Adds support for:
 * CORS
@@ -26,6 +26,6 @@ Adds support for:
 * Body parsing
 * ETags with Conditional GETs
 
-## 0.1.0 (2016-01-21)
+## 0.1.0 (2017-01-21)
 
 First release, including security headers via koa-helmet, response timing, and request IDs.
