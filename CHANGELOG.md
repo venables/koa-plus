@@ -1,5 +1,9 @@
 # Changelog
 
+## master
+
+* Set `ctx.id`, `ctx.request.id`, and `ctx.state.requestId` as requestId
+
 ## 1.1.0 (2017-01-22)
 
 * Allow middleware to be disabled with the `enabled: false` flag
