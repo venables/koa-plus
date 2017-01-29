@@ -20,6 +20,7 @@ koa-plus is the [koa framework](https://github.com/koajs/koa) (v2) extended for 
 * Adds ETag headers to allow conditional GET requests (respond with `304 Not Modified`)
 * Object stream support via [koa-json](https://github.com/koajs/json)
 * Request logging via [koa-morgan](https://github.com/koa-modules/morgan)
+* Simple `ctx.debug` (or `ctx.app.debug`) logging via the [debug](https://github.com/visionmedia/debug) module
 * Pretty-printed JSON in development
 
 Each feature [can be disabled](#disabling-middleware) individually.
@@ -68,6 +69,7 @@ middleware, simply pass the options to the constructor.
 * `body`:  Use the same options as the `koa-better-body` middleware accepts. [Docs](https://github.com/tunnckoCore/koa-better-body)
 * `compress`: Use the same options as the `koa-compress` middleware accepts. [Docs](https://github.com/koajs/compress/tree/v2.x)
 * `cors`: Use the same options as the `kcors` middleware accepts. [Docs](https://github.com/koajs/cors/tree/v2.x)
+* `debug`: Set the `name` of the debug logger
 * `helmet`: Use the same options as the `helmet` middleware accepts. [Docs](https://helmetjs.github.io/docs/)
 * `json`: Use the same options as the `koa-json` middleware accepts. [Docs](https://github.com/koajs/json/tree/next)
 * `logger`: Use `format` for the logger format, and the remaining options as what `morgan` accepts [Docs](https://github.com/expressjs/morgan)
@@ -86,6 +88,9 @@ const app = new Koa({
   },
   cors: {
     origin: '*' // Set the `Access-Control-Allow-Origin` header to be `*`
+  },
+  debug: {
+    name: 'worker' // Set the debug logger name
   },
   helmet: {
     noCache: true,  // Sets the `Cache-Control` headers to prevent caching
@@ -119,6 +124,9 @@ const app = new Koa({
     enabled: false
   },
   cors: {
+    enabled: false
+  },
+  debug: {
     enabled: false
   },
   etag: {

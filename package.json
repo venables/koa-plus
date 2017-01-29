@@ -16,6 +16,7 @@
     "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
   },
   "dependencies": {
+    "debug": "^2.6.0",
     "kcors": "^2.2.0",
     "koa": "next",
     "koa-better-body": "^3.0.2",

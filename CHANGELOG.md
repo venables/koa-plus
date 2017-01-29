@@ -3,6 +3,7 @@
 ## master
 
 * Set `ctx.id`, `ctx.request.id`, and `ctx.state.requestId` as requestId
+* Add `debug` module on `ctx.debug` and `ctx.app.debug`
 
 ## 1.1.0 (2017-01-22)
 
