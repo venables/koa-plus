@@ -4,6 +4,7 @@
 
 * Set `ctx.id`, `ctx.request.id`, and `ctx.state.requestId` as requestId
 * Add `debug` module on `ctx.debug` and `ctx.app.debug`
+* Set `app.context.config` (and `ctx.config`) to be the app configuration
 
 ## 1.1.0 (2017-01-22)
 

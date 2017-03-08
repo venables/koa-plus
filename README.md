@@ -22,6 +22,7 @@ koa-plus is the [koa framework](https://github.com/koajs/koa) (v2) extended for 
 * Request logging via [koa-morgan](https://github.com/koa-modules/morgan)
 * Simple `ctx.debug` (or `ctx.app.debug`) logging via the [debug](https://github.com/visionmedia/debug) module
 * Pretty-printed JSON in development
+* Exposes the app configuration on ctx as `ctx.config` (or, app.context.config)
 
 Each feature [can be disabled](#disabling-middleware) individually.
 
