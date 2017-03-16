@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.1 (2017-03-15)
+
+* Require node >= 6.0.0
+
 ## 1.2.0 (2017-03-15)
 
 * Set `ctx.id`, `ctx.request.id`, and `ctx.state.requestId` as requestId
