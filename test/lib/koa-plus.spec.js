@@ -68,7 +68,7 @@ describe('koa-plus', function () {
       .post('/')
       .send({ super: 'test' })
       .expect(201)
-      .expect({ fields: { super: 'test' } })
+      .expect({ body: { super: 'test' } })
   })
 
   it('responds with a `304 Not Modified` if a fresh cache exists', function () {
