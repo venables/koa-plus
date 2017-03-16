@@ -1,6 +1,6 @@
 # Changelog
 
-## master
+## 1.2.0 (2017-03-15)
 
 * Set `ctx.id`, `ctx.request.id`, and `ctx.state.requestId` as requestId
 * Add `debug` module on `ctx.debug` and `ctx.app.debug`
